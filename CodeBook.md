@@ -6,7 +6,7 @@ Randy Oswald
 
 <table>
 <tr><th>Column Name</th><th>Variable Type</th><th>Description</th><th>Range</th></tr>
-<tr><td><strong>Subject</strong></td><td>Int</td><td>Volunteer ID</td><td>-1..1</td></tr>
+<tr><td><strong>Subject</strong></td><td>Int</td><td>Volunteer ID</td><td>1..30</td></tr>
 <tr><td><strong>Activity</strong></td><td>String(19)</td><td>Activity Type</td><td><ul><li>WALKING</li><li>WALKING_UPSTAIRS</li><li>WALKING_DOWNSTAIRS</li><li>SITTING</li><li>STANDING</li><li>LAYING</li></ul></td></tr>
 <tr><td><strong>tBodyAcc.mean.X</strong></td><td>number</td><td>Mean Body Linear Acceleration - X Direction</td><td>-1..1</td></tr>
 <tr><td><strong>tBodyAcc.mean.Y</strong></td><td>number</td><td>Mean Body Linear Acceleration - Y Direction</td><td>-1..1</td></tr>
