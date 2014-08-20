@@ -11,7 +11,7 @@ Randy Oswald
 <tr><td><strong>tBodyAcc.mean.X</strong></td><td>number</td><td>Mean Body Linear Acceleration - X Direction</td><td>-1..1</td></tr>
 <tr><td><strong>tBodyAcc.mean.Y</strong></td><td>number</td><td>Mean Body Linear Acceleration - Y Direction</td><td>-1..1</td></tr>
 <tr><td><strong>tBodyAcc.mean.Z</strong></td><td>number</td><td>Mean Body Linear Acceleration - Z Direction</td><td>-1..1</td></tr>
-<tr><td><strong>tBodyAcc.std.X</strong></td><td>number</td> <td>Std. Dev. of Body Linear Acceleration - X Direction</td><td>-3..1</td></tr>
+<tr><td><strong>tBodyAcc.std.X</strong></td><td>number</td> <td>Std. Dev. of Body Linear Acceleration - X Direction</td><td>-1..1</td></tr>
 <tr><td><strong>tBodyAcc.std.Y</strong></td><td>number</td> <td>Std. Dev. of Body Linear Acceleration - Y Direction</td><td>-1..1</td></tr>
 <tr><td><strong>tBodyAcc.std.Z</strong></td><td>number</td> <td>Std. Dev. of Body Linear Acceleration - Z Direction</td><td>-1..1</td></tr>
 <tr><td><strong>tGravityAcc.mean.X</strong></td><td>number</td><td>Mean Gravity Linear Acceleration - X Direction</td><td>-1..1</td></tr>
@@ -48,7 +48,7 @@ Randy Oswald
 <tr><td><strong>tBodyGyroMag.std</strong></td><td>number</td><td>Std. Dev. FFT Gyroscope </td><td>-1..1</td></tr>
 <tr><td><strong>tBodyGyroJerkMag.mean</strong></td><td>number</td><td>Mean FFT Jerk Force Gyroscope</td><td>-1..1</td></tr>
 <tr><td><strong>tBodyGyroJerkMag.std</strong></td><td>number</td><td>Mean FFT Jerk Force Gyroscope</td><td>-1..1</td></tr>
-<tr><td><strong>fBodyAcc.mean.X</strong></td><td>number</td><td>Mean Body Linear Acceleration - X Direction Freq. Domain</td><td>-4..1</td></tr>
+<tr><td><strong>fBodyAcc.mean.X</strong></td><td>number</td><td>Mean Body Linear Acceleration - X Direction Freq. Domain</td><td>-1..1</td></tr>
 <tr><td><strong>fBodyAcc.mean.Y</strong></td><td>number</td><td>Mean Body Linear Acceleration - Y Direction Freq. Domain</td><td>-1..1</td></tr>
 <tr><td><strong>fBodyAcc.mean.Z</strong></td><td>number</td><td>Mean Body Linear Acceleration - Z Direction Freq. Domain</td><td>-1..1</td></tr>
 <tr><td><strong>fBodyAcc.std.X</strong></td><td>number</td> <td>Std. Dev. of Body Linear Acceleration - X Direction Freq. Domain</td><td>-1..1</td></tr>
@@ -67,8 +67,8 @@ Randy Oswald
 <tr><td><strong>fBodyGyro.std.Y</strong></td><td>number </td><td>Std. Dev. of Gyroscope - Y Direction - Freq. Domain</td><td>-1..1</td></tr>
 <tr><td><strong>fBodyGyro.std.Z</strong></td><td>number </td><td>Std. Dev. of Gyroscope - Z Direction - Freq. Domain</td><td>-1..1</td></tr>
 <tr><td><strong>fBodyAccMag.mean</strong></td><td>number</td><td>Mean FFT Body Acceleration - Freq. Domain</td><td>-1..1</td></tr>
-<tr><td><strong>fBodyAccMag.std</strong></td><td>number</td> <td>Std. Dev. FFT Body Acceleration - Freq. Domain</td><td>-2..1</td></tr>
-<tr><td><strong>fBodyBodyAccJerkMag.mean</strong></td><td>number</td><td>Mean FFT Body Linear Acceleration - Freq. Domain</td><td>-4..1</td></tr>
+<tr><td><strong>fBodyAccMag.std</strong></td><td>number</td> <td>Std. Dev. FFT Body Acceleration - Freq. Domain</td><td>-1..1</td></tr>
+<tr><td><strong>fBodyBodyAccJerkMag.mean</strong></td><td>number</td><td>Mean FFT Body Linear Acceleration - Freq. Domain</td><td>-1..1</td></tr>
 <tr><td><strong>fBodyBodyAccJerkMag.std</strong></td><td>number</td> <td>Std. Dev. FFT Body Linear Acceleration - Freq. Domain</td><td>-1..1</td></tr>
 <tr><td><strong>fBodyBodyGyroMag.mean</strong></td><td>number</td><td>Mean FFT Body Gyroscope - Freq. Domain</td><td>-1..1</td></tr>
 <tr><td><strong>fBodyBodyGyroMag.std</strong></td><td>number</td> <td>Std. Dev. FFT Body Gyroscope - Freq. Domain</td><td>-1..1</td></tr>
