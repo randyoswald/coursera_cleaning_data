@@ -1,13 +1,22 @@
+#########################################
+# Coursera - Getting and Cleaning Data  
+# Course Project
+# Randy Oswald
+# 8-21-2014
+#########################################
+
 run_analysis <- function() {
+    # Use PLYR library for grouping/summarizing final data set.
     library(plyr)
     
     ###########################################
     # Directory and file location constants
     ###########################################
-    zipFile <- "data.zip"
+    zipFile <- "data.zip"           # File to store downloaded zipfile
     dataDir <- "UCI HAR Dataset/"   # Make sure to have the trailing slash!
     remoteFile <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
     
+    # Filenames from the UCI HAR Dataset
     features_file <- "features.txt"
     activity_labels_file <- "activity_labels.txt"
     clean_data_file <- "clean_data.txt"
@@ -37,13 +46,13 @@ run_analysis <- function() {
     if(!file.exists(zipFile)) {
         download.file(remoteFile, zipFile, method="curl")
     } else {
-        # print("Already got it, nevermind!")
+        print("Already got it, nevermind!")
     }
     
     if(!file.exists(dataDir)) {
         unzip(zipFile, , exdir=".",junkpaths=FALSE, overwrite=FALSE) 
     } else {
-        # print("Already Unzipped, too!")
+        print("Already Unzipped, too!")
     }
     
     # Read in the feature file
@@ -51,18 +60,19 @@ run_analysis <- function() {
     # set column names for convenience, readability
     colnames(features) <- c("featureID", "featureName")
 
-    # Find the list of the colums we need by searching the list for mean and standard deviation features.
+    # Find the list of the colums we need by searching the list for mean
+    # and standard deviation features.
     necessaryColumns <- features[grep("mean\\(\\)|std\\(\\)",features$featureName),]
     
-    # Remove the parenthesis
+    # Remove characters not allowed in column names
     necessaryColumns$featureName <- gsub("\\(\\)","",necessaryColumns$featureName)
     necessaryColumns$featureName <- gsub("-",".",necessaryColumns$featureName)
     necessaryColumns$featureName <- gsub(",",".",necessaryColumns$featureName)
     # str(necessaryColumns)  #debugging
     
     # Read in activity Labels
-    activity_label_data <- read.csv(activity_labels_path,header=FALSE, sep="", stringsAsFactors=FALSE)
-    
+    activity_label_data <- read.csv(activity_labels_path,header=FALSE, sep=""
+                                    , stringsAsFactors=FALSE)
     
     # Read in the data files
     x_train <- read.csv(x_train_path,header=FALSE, sep="")
@@ -74,10 +84,14 @@ run_analysis <- function() {
     subject_test <- read.csv(subject_test_path,header=FALSE
                             ,col.names="Subject", sep="")
 
+    # Create the full data set from test & train data, using only the 
+    # necessary columns.  Note: Full_data further augmented later
     full_data <- rbind(x_train[ ,necessaryColumns$featureID]
                     , x_test[ ,necessaryColumns$featureID])
+    # Create full subject, y data.
     full_subject <- rbind(subject_train, subject_test)
     full_y <- rbind(y_train, y_test)
+    # Get the labels from the activity file data
     activity_labels <- activity_label_data$V2
     
     #create factor variables
@@ -90,11 +104,18 @@ run_analysis <- function() {
     # unallocate old variables from memory
     remove(subject_train, y_train, x_train, subject_test, y_test, x_test);
 
-    # Add in the names, skip the first two columns (subject and Y that wereprepended)
+    # Add in the names, skip the first two columns (subject and Y that were prepended)
     names(full_data)[c(-1,-2)] <- necessaryColumns$featureName
+    # Manually add in the first two column names
     names(full_data)[c(1,2)] <- c("Subject","Activity")
     
     # Summarize Data 
     clean_data <- ddply(full_data, c("Subject","Activity"), numcolwise(mean))
-    write.table(clean_data, clean_data_file, row.names=FALSE)   
+    
+    # Write out file
+    write.table(clean_data, clean_data_file, row.names=FALSE)
+    
+    # Used for column names for CodeBook
+    # column_names <- colnames(full_data);
+    # write.table(column_names,"colnames.txt", row.names=FALSE)
 }
